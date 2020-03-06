@@ -1,0 +1,73 @@
+FORMAT: 1A
+
+# micro-service-boilerplate
+
+API 연동 문서
+springdoc-openapi 로 작성된 swagger-ui 3.0 입니다.
+
+# Introduction
+This API is documented in **OpenAPI format**
+
+# Authentication
+Oauth2 방식의 인증을 통해서 접근가능합니다.
+
+### /sample/jpa/employees
+
+#### GET
+
++ Response 200 (application/json)
+
+    default response
+
+    + Attributes (array[사원])
+
+### /sample/mongo/employees
+
+#### GET
+
++ Response 200 (application/json)
+
+    default response
+
+    + Attributes (array[사원])
+
+### /sample/mybatis/employees
+
+#### GET
+
++ Response 200 (application/json)
+
+    default response
+
+    + Attributes (array[사원])
+
+# Data Structures
+
+## 사원 (object)
+사원정보
+
+### Properties
++ num (number) - 사번
+    + Sample: 10000
++ name - 이름
+    + Sample: 김길동
++ birthdate - 생년월일
+    + Sample: 19770808
++ ssn - 주민등록번호
+    + Sample: 000000-0000000
++ gender (enum) - 성별
+    - M
+    - F
+    + Sample: M
++ telephone - 전화번호
+    + Sample: 027895965
++ address - 주소
+    + Sample: 서울 송파 잠실본동
++ postal - 우편번호
+    + Sample: 103492
++ joblevelCode - 직급코드
+    + Sample: 00002
++ departmentCode - 부서코드
+    + Sample: 0000100006
++ skillCode - 직무코드
+    + Sample: 00002
