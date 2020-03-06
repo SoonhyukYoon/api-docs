@@ -1,0 +1,122 @@
+openapi: 3.0.1
+info:
+  title: micro-service-boilerplate
+  description: |-
+    API 연동 문서
+    springdoc-openapi 로 작성된 swagger-ui 3.0 입니다.
+
+    # Introduction
+    This API is documented in **OpenAPI format**
+
+    # Authentication
+    Oauth2 방식의 인증을 통해서 접근가능합니다.
+  contact:
+    email: soonhyuk.yoon@navercorp.com
+  version: '1.0'
+servers:
+  - url: 'http://local.navercorp.com:8080'
+    description: Generated server url
+tags:
+  - name: MyBatis
+    description: MyBatis 기반 DB 연동 샘플
+  - name: MongoDB
+    description: MongoDB 연동 샘플
+  - name: JPA
+    description: JPA 기반 DB 연동 샘플
+paths:
+  /sample/jpa/employees:
+    get:
+      tags:
+        - JPA
+      operationId: retrieveEmployees
+      responses:
+        '200':
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/사원'
+  /sample/mongo/employees:
+    get:
+      tags:
+        - MongoDB
+      operationId: retrieveEmployees_1
+      responses:
+        '200':
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/사원'
+  /sample/mybatis/employees:
+    get:
+      tags:
+        - MyBatis
+      operationId: retrieveEmployees_2
+      responses:
+        '200':
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/사원'
+components:
+  schemas:
+    사원:
+      type: object
+      properties:
+        num:
+          type: integer
+          description: 사번
+          format: int32
+          example: 10000
+        name:
+          type: string
+          description: 이름
+          example: 김길동
+        birthdate:
+          type: string
+          description: 생년월일
+          example: '19770808'
+        ssn:
+          type: string
+          description: 주민등록번호
+          example: 000000-0000000
+        gender:
+          type: string
+          description: 성별
+          example: M
+          enum:
+            - M
+            - F
+        telephone:
+          type: string
+          description: 전화번호
+          example: 027895965
+        address:
+          type: string
+          description: 주소
+          example: 서울 송파 잠실본동
+        postal:
+          type: string
+          description: 우편번호
+          example: '103492'
+        joblevelCode:
+          type: string
+          description: 직급코드
+          example: '00002'
+        departmentCode:
+          type: string
+          description: 부서코드
+          example: '0000100006'
+        skillCode:
+          type: string
+          description: 직무코드
+          example: '00002'
+      description: 사원정보
